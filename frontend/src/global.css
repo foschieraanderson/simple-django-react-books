@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Satisfy&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+  color: #f1f1f1;
+  background: #181C30;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  max-width: 980px;
+  width: 100%;
+  padding: 30px;
+  margin: 80px auto 0px;
+}
+
+.primary-title {
+  font-family: 'Satisfy', cursive;
+  font-size: 55px;
+  margin-bottom: 50px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #393E5B;
+}
+
+.add {
+  background-color: #2cdd90;
+  border-radius: 3px;
+  color: #fff;
+  margin-right: 10px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.add:hover {
+  background-color: #49F5AB;
+  transition: 0.3s;
+}
+
+header nav {
+  flex-wrap: wrap;
+  display: inline;
+}
+
+header nav ul {
+  list-style: none;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+header nav ul li .link-pages {
+  border-bottom: 3px solid #393E5B;
+  color: #FFF;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+header nav ul li .link-pages:hover {
+  background-color: #516073;
+  border-bottom: 3px solid #49F5AB;
+  color: #49F5AB;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+section table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+section table thead {
+  background-color: #464C70;
+  font-weight: bold;
+}
+
+section table tfoot {
+  background-color: #464C70;
+  font-weight: bold;
+}
+
+section table tbody {
+  background-color: #343954;
+}
+
+section table tbody td {
+  border-bottom: 1px solid #464C70;
+}
+
+section table tbody .action {
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+section table tbody .edit {
+  color: #ffd800;
+}
+
+section table tbody .edit:hover {
+  color: #f2e715;
+}
+
+section table tbody .delete {
+  color: #d80606;
+}
+
+section table tbody .delete:hover {
+  color: #e20d0d;
+}
+
+section table td {
+  padding: 10px;
+}
