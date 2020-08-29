@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiPlus, FiTrash2 } from 'react-icons/fi';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
+
+import Header from '../../Components/Header';
 
 import api from '../../services/api';
 
@@ -23,17 +25,8 @@ export default function Authors() {
 
   return (
 		<div className="container">
-			<h1 className="primary-title">Simple Django React App</h1>
-			<header>
-				<nav>
-					<ul>
-						<li><Link className="link-pages" to="/authors">Autores</Link></li>
-						<li><Link className="link-pages" to="/">Livros</Link></li>
-						<li><Link className="link-pages" to="/categories">Categorias</Link></li>
-					</ul>
-				</nav>
-				<Link className="add" to="/create"><FiPlus size={18} /> Adicionar</Link>
-			</header>
+
+			<Header />
 
 			<section>
 				<table>

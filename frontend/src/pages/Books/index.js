@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiEdit, FiPlus, FiTrash2 } from 'react-icons/fi';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
+
+import Header from '../../Components/Header';
 
 import api from '../../services/api';
 
@@ -36,17 +38,8 @@ export default function Books() {
 
 	return (
 		<div className="container">
-			<h1 className="primary-title">Simple Django React App</h1>
-			<header>
-				<nav>
-					<ul>
-						<li><Link className="link-pages" to="/authors">Autores</Link></li>
-						<li><Link className="link-pages" to="/">Livros</Link></li>
-						<li><Link className="link-pages" to="/categories">Categorias</Link></li>
-					</ul>
-				</nav>
-				<Link className="add" to="/create"><FiPlus size={18} /> Adicionar</Link>
-			</header>
+			
+			<Header />
 
 			<section>
 				<table>
@@ -55,7 +48,8 @@ export default function Books() {
 							<td>#</td>
 							<td>Livro</td>
 							<td>Autor</td>
-							<td></td>
+							<td>Categoria</td>
+							<td>Ações</td>
 						</tr>
 					</thead>
 					<tfoot>
@@ -63,7 +57,8 @@ export default function Books() {
 							<td>#</td>
 							<td>Livro</td>
 							<td>Autor</td>
-							<td></td>
+							<td>Categoria</td>
+							<td>Ações</td>
 						</tr>
 					</tfoot>
 
@@ -73,10 +68,13 @@ export default function Books() {
 							<td>{book.id}</td>
 							<td>{book.name}</td>
 							<td>
-								{book.author.name}
+								{book.author}
 							</td>
 							<td>
-								<Link className="action edit" to="/edit"><FiEdit size={18} /></Link>
+								{book.category}
+							</td>
+							<td>
+								<Link className="action edit" to="/edit"><FiEdit size={18} /></Link> 
 								<Link className="action delete" to="/delete"><FiTrash2 size={18} /></Link>
 							</td>
 						</tr>
