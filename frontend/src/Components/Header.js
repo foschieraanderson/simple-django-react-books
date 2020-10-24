@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 import { Modal, Button } from 'react-bootstrap';
 
@@ -21,21 +21,22 @@ function Header() {
                     <li><NavLink activeClassName="active" className="link-pages" to="/categories">Categorias</NavLink></li>
                 </ul>
             </nav>
-            <Button onClick={handleShow} className="add" ><FiPlus size={18} /> Adicionar</Button>
+            <Link className="add" to="/books/new"><FiPlus size={18} /> Adicionar</Link>
+            <Button onClick={handleShow} className="add"><FiPlus size={18} />Modal Adicionar</Button>
         </header>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-            <Modal.Title>Atenção</Modal.Title>
+                <Modal.Title>Atenção</Modal.Title>
             </Modal.Header>
             <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-                Save
-            </Button>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Save
+                </Button>
             </Modal.Footer>
         </Modal>
         </div>

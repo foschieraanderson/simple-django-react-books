@@ -33,14 +33,14 @@ export default function Categories() {
 						<tr>
 							<td>#</td>
 							<td>Categoria</td>
-							<td></td>
+							<td>Ações</td>
 						</tr>
 					</thead>
 					<tfoot>
 						<tr>
 							<td>#</td>
 							<td>Categoria</td>
-							<td></td>
+							<td>Ações</td>
 						</tr>
 					</tfoot>
 

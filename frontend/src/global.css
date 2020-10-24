@@ -53,7 +53,7 @@ header {
   transition: 0.3s;
 }
 
-.add:active {
+/* .add:active {
   background-color: #49F5AB;
 }
 
@@ -61,7 +61,7 @@ header {
   background-color: #49F5AB;
   border: none;
   box-shadow: none;
-}
+} */
 
 header nav {
   flex-wrap: wrap;
@@ -127,8 +127,22 @@ section table tbody td {
 }
 
 section table tbody .action {
+  border: none;
+  background: none;
   margin-left: 5px;
   text-decoration: none;
+  transition: filter 0.2s;
+}
+
+section table tbody .action:hover {
+  filter: brightness(0.8);
+  background: none;
+}
+
+section table tbody .action:focus {
+  border: none;
+  outline: none;
+  background: none;
 }
 
 section table tbody .edit {
@@ -149,4 +163,9 @@ section table tbody .delete:hover {
 
 section table td {
   padding: 10px;
+}
+
+/* RESET MODAL */
+.modal-content {
+  color: #000;
 }
