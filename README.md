@@ -1,3 +1,4 @@
-# Projeto para estudo de React e Django
+# Simple Django React Books
 
-API feita com Django no backend e React no frontend
+Projeto de um catálogo de livros com autores e categorias
+para estudo de React e Django em forma de uma API.
