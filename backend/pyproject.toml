@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "Simple Django React Books"
+version = "0.1.0"
+description = "Projeto de um catálogo de livros com autores e categorias para estudo de React e Django em forma de uma API."
+authors = ["Anderson Foschiera"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+asgiref = "3.2.10"
+Django = "3.1"
+django-cors-headers = "3.5.0"
+djangorestframework = "3.11.1"
+pytz = "2020.1"
+sqlparse = "^0.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
