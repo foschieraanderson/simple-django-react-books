@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import Modal from "react-modal"
 
 import Header from '../../Components/Header';
 
@@ -11,6 +12,16 @@ import './styles.css';
 export default function Categories() {
   
   const [categories, setCategories] = useState([]);
+
+  const [isNewCategoryModalOpen, setIsNewCategoryModalOpen] = useState(false)
+
+  function handleOpenNewCategoryModal() {
+      setIsNewCategoryModalOpen(true);
+  }
+
+  function handleCloseNewCategoryModal() {
+      setIsNewCategoryModalOpen(false);
+  }
 
   useEffect(() => {
     try {
@@ -25,7 +36,7 @@ export default function Categories() {
 
   return (
 		<div className="container">
-			<Header />
+			<Header onOpenNewModal={handleOpenNewCategoryModal} />
 
 			<section>
 				<table>
@@ -58,6 +69,9 @@ export default function Categories() {
 					</tbody>
 				</table>
 			</section>
+			<Modal isOpen={isNewCategoryModalOpen} onRequestClose={handleCloseNewCategoryModal}>
+                <h2>Cadastrar Categoria</h2>
+            </Modal>
 		</div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import Modal from "react-modal"
 
 import Header from '../../Components/Header';
 
@@ -11,6 +12,16 @@ import './styles.css';
 export default function Authors() {
   
   const [authors, setAuthors] = useState([]);
+
+  const [isNewAuthorModalOpen, setIsNewAuthorModalOpen] = useState(false)
+
+  function handleOpenNewAuthorModal() {
+  	setIsNewAuthorModalOpen(true);
+  }
+
+  function handleCloseNewAuthorModal() {
+	setIsNewAuthorModalOpen(false);
+  }
 
   useEffect(() => {
     try {
@@ -26,7 +37,7 @@ export default function Authors() {
   return (
 		<div className="container">
 
-			<Header />
+			<Header onOpenNewModal={handleOpenNewAuthorModal} />
 
 			<section>
 				<table>
@@ -59,6 +70,10 @@ export default function Authors() {
 					</tbody>
 				</table>
 			</section>
+
+			<Modal isOpen={isNewAuthorModalOpen} onRequestClose={handleCloseNewAuthorModal}>
+                <h2>Cadastrar Autor</h2>
+            </Modal>
 		</div>
   );
 }
