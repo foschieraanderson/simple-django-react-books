@@ -10,12 +10,12 @@ function Header({ onOpenNewModal }) {
             <header>
                 <nav>
                     <ul>
-                        <li><NavLink activeClassName="active" className="link-pages" to="/authors">Autores</NavLink></li>
                         <li><NavLink exact={true} activeClassName="active" className="link-pages" to="/">Livros</NavLink></li>
+                        <li><NavLink activeClassName="active" className="link-pages" to="/authors">Autores</NavLink></li>
                         <li><NavLink activeClassName="active" className="link-pages" to="/categories">Categorias</NavLink></li>
                     </ul>
                 </nav>
-                <button className="add" onClick={onOpenNewModal}><FiPlus size={18} /> Adicionar</button>
+                <button className="add" onClick={onOpenNewModal}><FiPlus size={18} /></button>
             </header>
         </div>
     )

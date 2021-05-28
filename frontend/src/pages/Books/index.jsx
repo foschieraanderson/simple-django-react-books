@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
-import Modal from "react-modal"
 
 import Header from '../../Components/Header';
+import NewBookModal from '../../Components/NewBookModal';
 
 import api from '../../services/api';
 
@@ -80,9 +80,7 @@ export default function Books() {
 					</tbody>
 				</table>
 			</section>
-			<Modal isOpen={isNewBookModalOpen} onRequestClose={handleCloseNewBookModal}>
-                <h2>Cadastrar Livro</h2>
-            </Modal>
+			<NewBookModal isOpen={isNewBookModalOpen} onRequestClose={handleCloseNewBookModal} />
 		</div>
 	);
 }
