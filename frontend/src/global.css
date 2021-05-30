@@ -43,7 +43,7 @@ header {
   border-radius: 3px;
   color: #fff;
   margin-right: 10px;
-  padding: 5px 8px;
+  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
 }
@@ -173,7 +173,23 @@ section table td {
   background: #393E5B;
   border-radius: 5px;
   width: 100%;
-  max-width: 540px;
+  max-width: 576px;
+  position: relative;
+}
+
+.react-modal-content .close-modal {
+  border: none;
+  background-color: transparent;
+  color: #516073;
+  padding: 0px 10px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.react-modal-content .close-modal:hover {
+  color: #464C70;
+  transition: 0.2s;
 }
 
 .react-modal-content .box-modal {
@@ -186,6 +202,7 @@ section table td {
   width: 100%;
   text-align: center;
   font-weight: 600;
+  margin-top: 2rem;
 }
 
 .react-modal-content .box-modal form {
