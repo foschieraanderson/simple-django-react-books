@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { Context } from '../../Contexts/Context';
+
 import NewAuthorModal from '../../Components/NewAuthorModal';
-
 import Header from '../../Components/Header';
-
-import api from '../../services/api';
 
 import './styles.css';
 
 export default function Authors() {
-  
-  const [authors, setAuthors] = useState([]);
+
+  const {authors} = useContext(Context)
 
   const [isNewAuthorModalOpen, setIsNewAuthorModalOpen] = useState(false)
-
+  
   function handleOpenNewAuthorModal() {
   	setIsNewAuthorModalOpen(true);
   }
@@ -22,17 +21,6 @@ export default function Authors() {
   function handleCloseNewAuthorModal() {
 	setIsNewAuthorModalOpen(false);
   }
-
-  useEffect(() => {
-    try {
-      api.get('/authors/')
-      .then(response => {
-        setAuthors(response.data);
-      })
-    } catch(error) {
-      console.log(error);
-    }
-  },[]);
 
   return (
 		<div className="container">

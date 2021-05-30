@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { Context } from '../../Contexts/Context';
+
 import NewCategoryModal from '../../Components/NewCategoryModal';
-
 import Header from '../../Components/Header';
-
-import api from '../../services/api';
 
 import './styles.css';
 
 export default function Categories() {
-  
-  const [categories, setCategories] = useState([]);
 
+  const {categories} = useContext(Context)
+  
   const [isNewCategoryModalOpen, setIsNewCategoryModalOpen] = useState(false)
 
   function handleOpenNewCategoryModal() {
@@ -22,17 +21,6 @@ export default function Categories() {
   function handleCloseNewCategoryModal() {
       setIsNewCategoryModalOpen(false);
   }
-
-  useEffect(() => {
-    try {
-      api.get('/categories/')
-      .then(response => {
-        setCategories(response.data);
-      })
-    } catch(error) {
-      console.log(error);
-    }
-  },[]);
 
   return (
 		<div className="container">

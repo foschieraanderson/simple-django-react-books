@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { Context } from '../../Contexts/Context';
 
 import Header from '../../Components/Header';
 import NewBookModal from '../../Components/NewBookModal';
-
-import api from '../../services/api';
 
 import './styles.css';
 
 export default function Books() {
 
-	const [books, setBooks] = useState([]);
+	const { books } = useContext(Context)
 
 	const [isNewBookModalOpen, setIsNewBookModalOpen] = useState(false)
 
@@ -22,17 +21,6 @@ export default function Books() {
     function handleCloseNewBookModal() {
         setIsNewBookModalOpen(false);
     }
-
-	useEffect(() => {
-		try {
-			api.get('/books/')
-			.then(response => {
-				setBooks(response.data);
-			})
-		} catch(error) {
-			console.log(error);
-		}
-	},[]);
 
 	return (
 		<div className="container">
