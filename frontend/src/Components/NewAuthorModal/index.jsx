@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { FiX } from "react-icons/fi";
 import { Context } from "../../Contexts/Context";
 
-export default function NewBookModal({ isOpen, onRequestClose }) {
+export default function NewAuthorModal({ isOpen, onRequestClose, id=null }) {
 
     const { createAuthor } = useContext(Context)
     
@@ -30,7 +30,7 @@ export default function NewBookModal({ isOpen, onRequestClose }) {
         >
             <button type="button" onClick={onRequestClose} className="close-modal"><FiX /></button>
             <div className="box-modal">
-                <h2>Cadastrar Autor</h2>
+                <h2>{id !== null ? "Editar Autor" : "Cadastrar Autor"}</h2>
                 <form onSubmit={handleCreateNewAuthor}>
                     <input className="form-control" value={name} onChange={event => setName(event.target.value)} placeholder="Nome" required />
                     <button className="btn-modal" type="submit">Salvar</button>
