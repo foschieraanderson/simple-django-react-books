@@ -7,25 +7,28 @@ import api from "../../services/api";
 
 export default function NewBookModal({ isOpen, onRequestClose }) {
 
-  const { authors, categories } = useContext(Context)
+    const { authors, categories, createBook } = useContext(Context)
 
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [category, setCategory] = useState('')
+    const [title, setTitle] = useState('')
+    const [author, setAuthor] = useState('')
+    const [category, setCategory] = useState('')
 
-  function handleCreateNewBook(event) {
-      event.preventDefault();
-      const data = {
-          "name": title,
-          "author": author,
-          "category": category
-      }
-      api.post('/books/', data).then(response => {
-          console.log(response.data);
-      }).catch(err => {
-          console.log(err);
-      })
-  }
+    async function handleCreateNewBook(event) {
+        event.preventDefault();
+        
+        const data = {
+        "name": title,
+        "author": author,
+        "category": category
+        }
+        
+        await createBook(data)
+
+        onRequestClose();
+        setTitle('')
+        setAuthor('')
+        setCategory('')
+    }
 
     return (
         <Modal
@@ -42,7 +45,7 @@ export default function NewBookModal({ isOpen, onRequestClose }) {
                     <select className="form-control" value={author} onChange={event => setAuthor(event.target.value)} required>
                         <option value="">Autores</option>
                         {authors.map(author => (
-                            <option key={author.id} value={ author.name }>{ author.name }</option>
+                            <option key={author.id} value={ author.id }>{ author.name }</option>
                         ))}
                     </select>
                     <select className="form-control" value={category} onChange={event => setCategory(event.target.value)} required>

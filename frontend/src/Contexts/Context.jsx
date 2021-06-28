@@ -10,6 +10,14 @@ export function ContextProvider({ children }) {
     const [authors, setAuthors] = useState([]);
     const [categories, setCategories] = useState([]);
 
+    function createBook(book) {
+        api.post('/books/', book).then(response => {
+            setBooks([...books, response.data])
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
     useEffect(() => {
 		try {
 			api.get('/books/')
@@ -52,7 +60,7 @@ export function ContextProvider({ children }) {
     },[]);
 
     return (
-        <Context.Provider value={{books, authors, createAuthor, categories}}>
+        <Context.Provider value={{books, authors, createAuthor, createBook, categories}}>
             {children}
         </Context.Provider>
     )
