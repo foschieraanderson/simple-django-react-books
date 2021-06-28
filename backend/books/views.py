@@ -1,13 +1,14 @@
-# from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 
 from .models import Book, Category
 from .serializers import BookSerializer, CategorySerializer
 
 class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
+
+    ''' Listagem de Livros '''
+
+    queryset = Book.objects.all().order_by('-created_at')
     serializer_class = BookSerializer
-#   permission_classes = ['']
 
 class CategoryViewSet(viewsets.ModelViewSet):
 

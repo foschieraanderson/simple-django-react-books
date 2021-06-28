@@ -12,7 +12,7 @@ export function ContextProvider({ children }) {
 
     function createBook(book) {
         api.post('/books/', book).then(response => {
-            setBooks([...books, response.data])
+            setBooks([response.data, ...books])
         }).catch(err => {
             console.log(err);
         })
