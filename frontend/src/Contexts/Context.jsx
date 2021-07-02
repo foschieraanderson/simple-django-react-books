@@ -48,7 +48,15 @@ export function ContextProvider({ children }) {
         }
     },[]);
 
-    useEffect(() => {
+    function createCategory(category) {
+        api.post('/categories/', category).then(response => {
+            setCategories([...categories, response.data])
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+   useEffect(() => {
         try {
           api.get('/categories/')
           .then(response => {
@@ -60,7 +68,7 @@ export function ContextProvider({ children }) {
     },[]);
 
     return (
-        <Context.Provider value={{books, authors, createAuthor, createBook, categories}}>
+        <Context.Provider value={{books, createBook, authors, createAuthor, categories, createCategory}}>
             {children}
         </Context.Provider>
     )
