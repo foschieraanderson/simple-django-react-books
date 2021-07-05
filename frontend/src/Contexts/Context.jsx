@@ -28,10 +28,18 @@ export function ContextProvider({ children }) {
 			console.log(error);
 		}
     },[]);
-    
+
     function createAuthor(author) {
         api.post('/authors/', author).then(response => {
             setAuthors([...authors, response.data])
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    function deleteAuthor(author) {
+        api.delete(`/authors/${author.id}`).then(response => {
+            console.log('Autor deletado!')
         }).catch(err => {
             console.log(err);
         })
@@ -68,7 +76,7 @@ export function ContextProvider({ children }) {
     },[]);
 
     return (
-        <Context.Provider value={{books, createBook, authors, createAuthor, categories, createCategory}}>
+        <Context.Provider value={{books, createBook, authors, createAuthor, deleteAuthor, categories, createCategory}}>
             {children}
         </Context.Provider>
     )

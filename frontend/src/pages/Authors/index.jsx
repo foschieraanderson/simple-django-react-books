@@ -10,15 +10,16 @@ import './styles.css';
 
 export default function Authors() {
 
-  const {authors} = useContext(Context)
+  const {authors, deleteAuthor} = useContext(Context)
 
   const [isNewAuthorModalOpen, setIsNewAuthorModalOpen] = useState(false)
   const [idAuthor, setIdAuthor] = useState(null)
 
-  function handleOpenNewAuthorModal(id_author=null) {
+  function handleOpenNewAuthorModal(id_author) {
 	setIsNewAuthorModalOpen(true);
 	if(id_author !== null) {
 	  setIdAuthor(id_author);
+      console.log(id_author)
 	} else {
 	  setIdAuthor(null);
 	}	  
@@ -26,6 +27,12 @@ export default function Authors() {
 
   function handleCloseNewAuthorModal() {
 	setIsNewAuthorModalOpen(false);
+  }
+
+  function handleDeleteAuthor(author) {
+    if(author) {
+      deleteAuthor(author)
+    }
   }
 
   return (
@@ -56,8 +63,8 @@ export default function Authors() {
 							<td>{author.id}</td>
 							<td>{author.name}</td>
 							<td>
-								<button className="action edit" onClick={() => handleOpenNewAuthorModal(author.id)} to="/edit"><FiEdit size={18} /></button>
-								<Link className="action delete" to="/delete"><FiTrash2 size={18} /></Link>
+								<button className="action edit" onClick={() => handleOpenNewAuthorModal(author.id)}><FiEdit size={18} /></button>
+                                <button className="action delete" onClick={() => handleDeleteAuthor(author)}><FiTrash2 size={18} /></button>
 							</td>
 						</tr>
 						))}
